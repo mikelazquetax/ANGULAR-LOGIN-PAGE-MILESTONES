@@ -1,0 +1,72 @@
+*{
+    margin:0;
+    padding: 0;
+    
+}
+
+.box{
+    background-color: #242454;
+    height: 110vh;
+   margin: -20px;
+  
+}
+
+.formulario{
+    background-color: #242454;
+    text-align: center;
+    width: max-content;
+    margin:auto;
+    width:20%;
+    padding: 15%;
+    & input{
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid white;
+        outline: 0;
+        font-size: 1.3rem;
+        color: white ;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+        margin-bottom: 4%;
+  
+        &:hover{
+            color: gold;
+        }
+        &::placeholder {
+            color: whitesmoke;
+            opacity: 0.5;
+            font-size: 15px;
+ 
+          }
+    }
+    & p{
+        color:gold;
+        margin-bottom: 2%;
+    }
+
+
+}
+
+.heading{
+    color: white;
+    margin-bottom: 10%;
+  
+}
+
+.botonLog{
+    margin-top: 4%;
+    padding: 2%;
+    font-weight: bolder;
+    width: 100%;
+    border-color: gold;
+    &:hover{
+        background-color:black;
+        color:white;
+        cursor: pointer;
+    }
+}
+.botonback{
+    margin-bottom: 2%;
+}

@@ -1,0 +1,29 @@
+<!-- <div class="botonMil">
+  <button (click)="onButtonClick()">Add New mileStone</button>
+  </div> -->
+<div *ngIf="shown" class=" modal">
+
+  <div class="modal-header">
+      <div>
+    <p class="title">ADD NEW MILESTONE</p>
+</div>
+    <div>
+      <button  (click)="closePopUp($event)" class="close-button">X</button>
+    </div>
+  </div>
+  <div class="body">
+
+   <input type="date" [(ngModel)]="date">
+  
+    <input type="text" name="name" id="name" [(ngModel)]="title"> 
+    <textarea name="textA" id="textA" cols="30" rows="10"  [(ngModel)]="text"></textarea>
+  </div>
+  <div class="ok">
+<button (click)="saveAction($event)"  >Save</button>
+
+  </div>
+</div>
+
+
+<!-- <ng-template #shownTrue>{{shown}}</ng-template>  -->
+<!-- <router-outlet></router-outlet> -->

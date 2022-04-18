@@ -1,0 +1,54 @@
+
+<div class="box">
+<div class="formulario">
+    <h1 class="heading">MileStones Login</h1>
+  <form novalidate (ngSubmit)="onSubmit($event)" [formGroup]="userRegisterForm" autocomplete="off">
+    <!-- El formGroup sirve para agrupar campos input y validarlos de forma conjunta -->
+    <div>
+      <input class='inputBox' type="text" name="email" id="email" formControlName="email" placeholder="Introduce tu email"
+      />
+      
+      <!-- formControlName funciona como el ngModel -->
+     <div>
+<!--       <p *ngIf="
+      !userRegisterForm.get('email')?.hasError('pattern') &&
+      (userRegisterForm.get('email')?.dirty || submitted )" > <!-- ? es para que no dé el error de object is possibly null -->
+ <!--        Formato invalido
+    </p> --> 
+      <p *ngIf="userRegisterForm.get('email')?.hasError('mustContainDomain') &&
+      (userRegisterForm.get('email')?.dirty || submitted )">
+          El dominio del email no es el correcto
+    </p> 
+      <p *ngIf="userRegisterForm.get('email')?.hasError('mustContainName') &&
+      (userRegisterForm.get('email')?.dirty || submitted )">
+          El dominio superior debe contener 'algo' antes del '@'
+    </p> 
+    <p *ngIf="userRegisterForm.get('email')?.hasError('mustBeLarger') &&
+    (userRegisterForm.get('email')?.dirty || submitted )">
+        El dominio superior está malformado
+  </p> 
+</div>
+</div>
+    
+    <div>
+      <input  class='inputBox' type="password" name="password" id="password" formControlName="password"  placeholder="Introduce Contraseña"
+      />
+      <p *ngIf="
+      !userRegisterForm.get('password')?.valid && 
+      (submitted)"> <!-- ? es para que no dé el error de object is possibly null -->
+        Contraseña Incorrecta
+    </p>
+    </div>
+    <div>
+      <button class="botonLog" type="submit">LOG IN</button>
+     <!--  [routerLink]= "correctLogin === true  ?  ['/timeline'] : ['']" -->
+      <!-- *ngIf = "" [routerLink]="['/timeline/']" -->
+    </div>
+   
+  </form>
+  <div>
+    <button class="botonLog" [routerLink]="['/register/']">REGISTER NOW!  </button>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,67 @@
+<div class="box">
+    <div class="formulario">
+      <div class="botonback">
+      <button class="botonLog" [routerLink]="['..']">GO BACK TO LOGIN PAGE  </button>
+    </div>
+        <h1 class="heading">Register New User</h1>
+        <form novalidate (ngSubmit)="onNewUser($event)" [formGroup]="userSignup" autocomplete="off">
+            <div>
+                <input class='inputBox' type="text" name="email" id="email" formControlName="email" placeholder="Introduce tu email"/>
+                <div class="text-error">
+                    <!--       <p *ngIf="
+                          !userRegisterForm.get('email')?.hasError('pattern') &&
+                          (userRegisterForm.get('email')?.dirty || submitted )" > <!-- ? es para que no dé el error de object is possibly null -->
+                     <!--        Formato invalido
+                        </p> --> 
+                          <p *ngIf="userSignup.get('email')?.hasError('mustContainDomain') &&
+                          (userSignup.get('email')?.dirty || submitted )">
+                              El dominio del email no es el correcto
+                        </p> 
+                          <p *ngIf="userSignup.get('email')?.hasError('mustContainName') &&
+                          (userSignup.get('email')?.dirty || submitted )">
+                              El dominio superior debe contener 'algo' antes del '@'
+                        </p> 
+                        <p *ngIf="userSignup.get('email')?.hasError('mustBeLarger') &&
+                        (userSignup.get('email')?.dirty || submitted )">
+                            El dominio superior está malformado
+                      </p> 
+                    </div>
+            
+            
+            </div>
+                      
+            <div>
+                <input  class='inputBox' type="password" name="password" id="password" formControlName="password"  placeholder="Introduce Contraseña"/>
+                <div class="text-error">
+                <p *ngIf="
+                !userSignup.get('password')?.valid &&
+                (userSignup.get('password')?.dirty || submitted )">
+              El campo contraseña es obligatorio
+            </p>
+              </div>
+            
+            </div>
+            <div>
+                <input  class='inputBox' type="password" name="passwordRepeat" id="passwordRepeat" formControlName="passwordRepeat"  placeholder="Repita Contraseña"/>
+                <div class="text-error">
+                    <p  *ngIf="
+                    !userSignup.get('passwordRepeat')?.valid &&
+                    (userSignup.get('passwordRepeat')?.dirty || submitted )"
+                    >
+                  La contraseña es obligatoria
+                </p>
+                
+                <p *ngIf="
+                userSignup.get('passwordRepeat')?.hasError('passwordMatch') &&
+                    (userSignup.get('passwordRepeat')?.dirty || submitted)">
+                 Las contraseñas no coinciden
+                </p>
+                </div>
+           
+            </div>
+            <div>
+                <button class="botonLog" type="submit">SUBMIT</button>
+              </div>
+        </form>
+    </div>
+  </div>
